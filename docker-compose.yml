@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: orangehrm_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: orangehrm
+      MYSQL_USER: orangehrm
+      MYSQL_PASSWORD: orange123
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - orangehrm_net
+
+  orangehrm:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: orangehrm_app
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      ORANGEHRM_DATABASE_HOST: mysql
+      ORANGEHRM_DATABASE_NAME: orangehrm
+      ORANGEHRM_DATABASE_USER: orangehrm
+      ORANGEHRM_DATABASE_PASSWORD: orange123
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - orangehrm_net
+
+volumes:
+  mysql_data:
+
+networks:
+  orangehrm_net:

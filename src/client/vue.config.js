@@ -15,6 +15,7 @@ module.exports = {
       alias: {
         '@ohrm/core': '@/core',
         '@ohrm/components': '@/core/components',
+        '@ohrm/oxd': require('path').resolve(__dirname, 'node_modules/@ohrm/oxd/index.es.js'),
       },
     },
     plugins: [new DumpBuildTimestampPlugin()],

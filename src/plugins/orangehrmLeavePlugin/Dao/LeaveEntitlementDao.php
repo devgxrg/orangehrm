@@ -511,7 +511,10 @@ class LeaveEntitlementDao extends BaseDao
         $parameters = [$empNumber, $leaveTypeId, $formattedAsAtDate];
 
         if (!empty($date)) {
-            $sql .= ' AND ? BETWEEN le.from_date AND le.to_date ';
+            // Allow entitlements that overlap with the requested date range,
+            // not just those spanning the full leave period end date.
+            // This supports monthly entitlements alongside annual ones.
+            $sql .= ' AND le.from_date <= ? ';
             $parameters[] = $formattedDate;
         }
 

@@ -13,6 +13,11 @@ module.exports = defineConfig({
   },
   transpileDependencies: true,
   configureWebpack: {
+    resolve: {
+      alias: {
+        '@ohrm/oxd': '@ohrm/oxd/index.es.js',
+      },
+    },
     plugins: [new DumpBuildTimestampPlugin()],
   },
   chainWebpack: (config) => {

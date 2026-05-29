@@ -4,9 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% block title %}OrangeHRM{% endblock %}</title>
+  <title>{% block title %}Meta School{% endblock %}</title>
   {% block links %}{% endblock %}
   {% block stylesheets %}{% endblock %}
+  <style>
+    .orangehrm-login-branding { background: none !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; margin-bottom: 1.5rem !important; }
+    .orangehrm-login-branding img { object-fit: contain !important; width: auto !important; max-width: 200px !important; height: auto !important; max-height: 120px !important; }
+    .orangehrm-login-logo { display: none !important; }
+    .orangehrm-login-logo-mobile { display: none !important; }
+    .oxd-brand-logo { display: none !important; }
+    oxd-sidepanel-header, .oxd-sidepanel-header { display: flex !important; flex-direction: column !important; align-items: center !important; padding: 0 !important; width: 100% !important; }
+    .oxd-brand-banner { display: flex !important; justify-content: center !important; align-items: center !important; height: auto !important; width: 100% !important; margin: 0 !important; }
+    .oxd-brand-banner img { object-fit: contain !important; width: auto !important; height: 100px !important; max-width: 220px !important; display: block !important; margin: 0 auto !important; }
+  </style>
 </head>
 <body>
   <style>
@@ -14,6 +24,15 @@
     {% for key, variable in themeVariables %}
         {{ key }}:{{ variable }};
     {% endfor %}
+    }
+  </style>
+  <style>
+    :root {
+      --oxd-primary-one-color: #4A4056;
+      --oxd-primary-one-lighten-5-color: #594F65;
+      --oxd-primary-one-darken-5-color: #3D3349;
+      --oxd-primary-one-alpha-15-color: rgba(74, 64, 86, 0.15);
+      --oxd-primary-one-alpha-5-color: rgba(74, 64, 86, 0.05);
     }
   </style>
 {% block body %}
