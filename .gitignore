@@ -13,3 +13,5 @@ coverage/
 src/plugins/orangehrmFunctionalTestingPlugin
 .php-cs-fixer.cache
 .php-cs-fixer.php
+installer/client/package-lock.json
+src/client/package-lock.json
