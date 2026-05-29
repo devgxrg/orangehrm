@@ -14,6 +14,13 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - orangehrm_net
+    mem_limit: 600m
+    mem_reservation: 256m
+    command: >
+      --innodb-buffer-pool-size=128M
+      --max-connections=50
+      --tmp-table-size=32M
+      --max-heap-table-size=32M
 
   orangehrm:
     build:
@@ -34,6 +41,8 @@ services:
       - "8080:80"
     networks:
       - orangehrm_net
+    mem_limit: 512m
+    mem_reservation: 128m
 
 volumes:
   mysql_data:
